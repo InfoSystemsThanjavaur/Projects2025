@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/free.css">
+    <link rel="shortcut icon" href="static/image/a5.jpg" type="image/x-icon">
+    <title>Password Reset</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #007bff, #6c757d);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+
+        .reset-container {
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 360px;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 26px;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type="text"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 16px;
+            margin-bottom: 15px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+            outline: none;
+        }
+
+        input[type="submit"] {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        input[type="submit"]:hover {
+            background: linear-gradient(135deg, #0056b3, #003a75);
+            transform: translateY(-2px);
+        }
+
+        .alert {
+            font-size: 14px;
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="reset-container">
+        <h1>Welcome to Password Reset</h1>
+        <form action="reset.html" method="Post">
+            {% csrf_token %}
+            <input type="text" name="pwd" placeholder="Enter New Password" required>
+            <input type="text" name="cpwd" placeholder="Confirm New Password" required>
+            <input type="submit" value="Change">
+        </form>
+
+        {% if result == 0 %}
+        <p class="alert">Mismatch Password</p>
+        {% endif %}
+    </div>
+</body>
+</html>

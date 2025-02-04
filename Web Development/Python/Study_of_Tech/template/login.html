@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Day & Night Mode</title>
+    <link rel="shortcut icon" href="static/image/a5.jpg" type="image/x-icon">   
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: background-color 0.3s ease;
+        }
+
+        .wrapper {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+        }
+
+        .wrapper.dark-mode {
+            background-color: #2c2c2c;
+            color: #f0f0f0;
+        }
+
+        
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .wrapper.dark-mode h1 {
+            color: #fff;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .icon {
+            position: absolute;
+            margin-top: -2rem;
+            margin-left: -25px;
+            font-size: 1.2rem;
+            color: #777;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .wrapper.dark-mode button {
+            background-color: #444;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .switch {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+
+        .switch-checkbox {
+            display: none;
+        }
+
+        .switch-label {
+            display: inline-block;
+            width: 50px;
+            height: 25px;
+            background-color: #ccc;
+            border-radius: 25px;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .switch-checkbox:checked + .switch-label {
+            background-color: #007bff;
+        }
+
+        .switch-label span {
+            display: block;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            transform: translateY(-50%);
+            transition: left 0.3s ease;
+        }
+
+        .switch-checkbox:checked + .switch-label span {
+            left: 25px;
+        }
+
+        marquee {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .wrapper.dark-mode marquee {
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <form method="POST" action="login.html">
+            {% csrf_token %}
+            <h1>Login</h1>
+            <label>Email</label>
+            <ion-icon class="icon" name="person-circle-outline"></ion-icon>
+            <input type="text" name="eml" placeholder="Enter your email">
+            <label>Password</label>
+            <ion-icon class="icon" name="lock-open-outline"></ion-icon>
+            <input type="password" name="pwd" placeholder="Enter your password">
+            <button type="submit">Login</button>
+            <button type="button" onclick="signup()">Sign Up</button>
+            <a href="forgot.html">Forgot password?</a>
+            <marquee behavior="scroll" direction="left">
+                This login page provides Day & Night mode. Toggle the switch above!
+            </marquee>
+        </form>
+        <div class="switch">
+            <input type="checkbox" name="switch" id="custom-switch" class="switch-checkbox">
+            <label for="custom-switch" class="switch-label">
+                <span></span>
+            </label>
+        </div>
+    </div>
+
+    {% if result == 0 %}
+    <script>
+        alert('Wrong Username and Password');
+    </script>
+    {% endif %}
+
+    <script src="Jquery.js"></script>
+    <script>
+        function signup() {
+            window.open('sign.html', '_self');
+        }
+
+        $('#custom-switch').change(function () {
+            $('.wrapper').toggleClass('dark-mode');
+            $('body').toggleClass('dark-mode');
+        });
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

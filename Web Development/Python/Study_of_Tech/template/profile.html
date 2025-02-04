@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Profile</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #74b9ff, #00cec9);
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-image {
+            display: block;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            border: 4px solid #74b9ff;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin: 10px 0;
+            color: #2d3436;
+        }
+
+        .header h2 {
+            font-size: 18px;
+            font-weight: normal;
+            color: #636e72;
+        }
+
+        .info {
+            margin: 20px 0;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .info h3 {
+            margin: 0 0 10px;
+            font-size: 18px;
+            color: #2d3436;
+        }
+
+        .info span {
+            display: block;
+            margin-left: 10px;
+            font-size: 16px;
+            color: #636e72;
+        }
+
+        .logout {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .logout button {
+            background: #d63031;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .logout button:hover {
+            background: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="static/image/a5.jpg" alt="Profile Image" class="profile-image">
+        <div class="header">
+            <h1>Welcome, {{name}}</h1>
+            <h2>Customer Profile</h2>
+        </div>
+        <div class="info">
+            <h3>Mobile:</h3>
+            <span>{{phone}}</span>
+
+            <h3>Email:</h3>
+            <span>{{email}}</span>
+
+            <h3>Date of Birth:</h3>
+            <span>{{dob}}</span>
+
+            <h3>Customer ID:</h3>
+            <span>{{id}}</span>
+        </div>
+        <form method="post" class="logout">
+            {% csrf_token %}
+            <button type="submit">LOGOUT</button>
+        </form>
+    </div>
+</body>
+</html>

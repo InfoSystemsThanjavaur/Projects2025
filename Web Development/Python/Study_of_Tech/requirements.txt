@@ -1,0 +1,5 @@
+django
+django-admin
+mysql
+mysql.connector
+secure-smtplib

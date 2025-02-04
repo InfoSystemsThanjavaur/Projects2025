@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="shortcut icon" href="static/image/a5.jpg" type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #acb6e5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .all {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        label {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        .ico {
+            margin-left: 8px;
+            color: #007bff;
+        }
+
+        .inp, .inp1 {
+            margin-top: 0.5rem;
+        }
+
+        input[type="text"], 
+        input[type="password"], 
+        input[type="email-requierd"], 
+        input[type="date"] {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus, 
+        input[type="password"]:focus, 
+        input[type="email-requierd"]:focus, 
+        input[type="date"]:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+        }
+
+        .btn {
+            background: #007bff;
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+            margin-top: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+
+        .bot {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .bot a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .bot a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="all">
+            <h1>Sign Up - Study of Technology</h1>
+            <label>
+                Username
+                <div class="ico">
+                    <ion-icon name="person-circle-outline"></ion-icon>
+                </div>
+            </label>
+            <div class="inp">
+                <input type="email-requierd" name="un" placeholder="Enter your username">
+            </div>
+            <label>
+                Email
+                <div class="ico">
+                    <ion-icon name="mail-outline"></ion-icon>
+                </div>
+            </label>
+            <div class="inp">
+                <input type="email-requierd" name="eml" placeholder="Enter your email">
+            </div>
+            <label>
+                Mobile Number
+                <div class="ico">
+                    <ion-icon name="call-outline"></ion-icon>
+                </div>
+            </label>
+            <div class="inp">
+                <input type="text" name="mno" placeholder="Enter your mobile number">
+            </div>
+            <label>
+                Password
+                <div class="ico">
+                    <ion-icon name="lock-open-outline"></ion-icon>
+                </div>
+            </label>
+            <div class="inp">
+                <input type="password" name="pwd" placeholder="Enter your password">
+            </div>
+            <label>Date of Birth</label>
+            <div class="inp1">
+                <input type="date" name="dob">
+            </div>
+            <input type="submit" class="btn" value="Sign Up">
+            <div class="bot">
+                <a class="for" href="login.html">Already have an account? Click here.</a>
+            </div>
+        </div>
+    </form>
+    {% if result == 0 %}
+    <script>
+        alert('{{result}}');
+    </script>
+    {% endif %}
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

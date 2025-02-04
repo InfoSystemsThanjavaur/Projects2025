@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Study of Technology</title>
+    <link rel="shortcut icon" href="static/image/a5.jpg" type="image/x-icon">
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #74ebd5, #acb6e5);
+            color: #333;
+            overflow-x: hidden;
+        }
+        .container {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .bubble {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .bubble span {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float 5s infinite;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+        }
+        .bubble span:nth-child(odd) {
+            animation-duration: 4s;
+        }
+        .bubble span:nth-child(even) {
+            animation-duration: 6s;
+        }
+        h1 {
+            font-size: 3rem;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 30px;
+        }
+        .list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .list ul {
+            list-style: none;
+        }
+        .list li {
+            text-align: left;
+            margin-bottom: 15px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .list li:hover {
+            transform: translateY(-5px);
+        }
+        .course {
+            width: 100px; /* Set the desired width */
+            height: 100px; /* Set the desired height */
+            object-fit: cover; /* Ensures the image maintains its aspect ratio and fits within the specified size */
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        a:hover {
+            color: #0056b3;
+        }
+        .para {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .para a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .para a:hover {
+            background: #0056b3;
+        }
+        footer {
+            margin-top: 30px;
+            padding: 10px 20px;
+            background: #222;
+            color: white;
+            text-align: center;
+        }
+  
+    </style>
+</head><body>
+    <div class="container">
+        <div class="bubble">
+            <h1>Study of Technology</h1>
+            <p>
+                Provide the best online courses on our website. Well-trained and knowledgeable staff 
+                offer 12 technical courses. Students can learn free trial courses for 1 week. <br>
+                Every additional skill improves your career, so focus on your goals and learn quickly on our site. 
+                Artificial intelligence skills are at their peak in the future, so hurry up and learn!
+            </p>
+
+            <div class="list">
+                <ul>
+                    <li>
+                        <img src="static/image/ai.jpg" class="course">
+                        <a href="course.html#ai">Artificial Intelligence</a>
+                        <p>Learn the foundations of AI, including machine learning, neural networks, and real-world applications.</p>
+                    </li>
+                    <li>
+                        <img src="static/image/al.jpg" class="course">
+                        <a href="course.html#al">Algorithm</a>
+                        <p>Master problem-solving with algorithms, including sorting, searching, and optimization techniques.</p>
+                    </li>
+                    <li>
+                        <img src="static/image/cs.jpg" class="course">
+                        <a href="course.html#cs">Cascading Style Sheets</a>
+                        <p>Style websites with CSS, including animations, layouts, and responsive design techniques.</p>
+                    </li>
+                    <li>
+                        <img src="static/image/cys.jpg" class="course">
+                        <a href="course.html#cys">Cyber Security</a>
+                        <p>Protect systems and data with network security, cryptography, and ethical hacking skills.</p>
+                    </li>
+                    <li>
+                        <img src="static/image/das.jpg" class="course">
+                        <a href="course.html#das">Data Structure</a>
+                        <p>Build efficient solutions with arrays, linked lists, trees, and graphs.</p>
+                    </li>
+                    <li>
+                        <img src="static/image/ds.jpg" class="course">
+                        <a href="course.html#ds">Data Science</a>
+                        <p>Analyze data with Python, visualization tools, and predictive modeling.</p>
+                    </li>
+                    <li>
+                        <img src="static/image/ht.jpg" class="course">
+                        <a href="course.html#htm">HTML</a>
+                        <p>Start building websites by structuring content with HTML.</p>
+                    </li>
+                    <li>
+                        <img src="static/image/ja.jpg" class="course">
+                        <a href="course.html#ja">Java</a>
+                        <p>Learn object-oriented programming and develop robust applications.</p>
+                    </li>
+                    <li>
+                        <img src="static/image/js.jpg" class="course">
+                        <a href="course.html#js">JavaScript</a>
+                        <p>Add interactivity to websites with JavaScript and modern frameworks.</p>
+                    </li>
+                    <li>
+                        <img src="static/image/os.jpg" class="course">
+                        <a href="course.html#os">Operating Systems</a>
+                        <p>Understand process management, memory allocation, and file systems.</p>
+                    </li>
+                    <li>
+                        <img src="static/image/phy.jpg" class="course">
+                        <a href="course.html#phy">Python</a>
+                        <p>Learn Python for web development, automation, and AI projects.</p>
+                    </li>
+                    <li>
+                        <img src="static/image/ux.jpg" class="course">
+                        <a href="course.html#ux">UI/UX Design</a>
+                        <p>Design user-friendly and visually appealing interfaces.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="para">
+                <p>
+                    All types of technical courses are easy to learn and develop your skills. We provide 
+                    high-value courses at affordable prices with shorter durations. All degree holders can 
+                    benefit from our technology-oriented courses to build their computer knowledge.
+                </p>
+                <a href="course.html">More details click here</a>
+            </div>
+        </div>
+    </div>
+    <script src="static/jss/course.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
