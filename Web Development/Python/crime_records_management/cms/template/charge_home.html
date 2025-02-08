@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Records Management System</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .header {
+            width: 100%;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            box-shadow: 0px 4px 10px red;
+        }
+
+        h1 {
+            color: red;
+            text-shadow: 2px 2px 5px darkred;
+            font-size: 32px;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            padding: 12px 20px;
+            background-color: darkred;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+            box-shadow: 0px 0px 8px red;
+        }
+
+        .menu a:hover {
+            background-color: red;
+            box-shadow: 0px 0px 15px red;
+        }
+
+        .content {
+            background: rgba(30, 30, 30, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px red;
+            width: 60%;
+            margin-top: 50px;
+        }
+
+        h2 {
+            color: white;
+            text-shadow: 1px 1px 5px red;
+        }
+
+        p {
+            font-size: 18px;
+            color: #ccc;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .content {
+                width: 80%;
+            }
+
+            .menu {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .menu a {
+                width: 80%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Records Management System</h1>
+    </div>
+
+    <nav class="menu">
+        <a href="chargesheet.html">Charge Sheet Master</a>
+        <a href="login.html">LOGOUT</a>
+    </nav>
+
+    <div class="content">
+        <h2>Welcome to the Records Management System</h2>
+        <p>Manage and analyze crime records efficiently.</p>
+    </div>
+</body>
+</html>

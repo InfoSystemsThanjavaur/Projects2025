@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Victim FIR Master</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 300px;
+            padding: 20px;
+            border: 1px solid white;
+            border-radius: 10px;
+            background-color: #222;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+            border: 1px solid white;
+            border-radius: 5px;
+            background-color: black;
+            color: white;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Victim FIR Master</h2>
+        <form method="post">
+            {% csrf_token %}
+            <label for="firid">Victim FIR ID:</label>
+            <input type="text" id="firid" name="firid" required>
+            
+            <label for="crimenatureid">Crime Nature ID:</label>
+            <input type="text" id="crimenatureid" name="crimenatureid" required>
+            
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+            
+            <label for="locationdetails">Location Details:</label>
+            <input type="text" id="locationdetails" name="locationdetails" required>
+            
+            <label for="victimid">Victim ID:</label>
+            <input type="text" id="victimid" name="victimid" required>
+            
+            <label for="investigationofficerid">Investigation Officer ID:</label>
+            <input type="text" id="investigationofficerid" name="investigationofficerid" required>
+            
+            <label for="crimedate">Crime Date (DD-MM-YYYY):</label>
+            <input type="date" id="crimedate" name="crimedate" required>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

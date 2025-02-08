@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            color: red;
+            text-shadow: 2px 2px 5px darkred;
+            font-size: 32px;
+        }
+
+        .table-container {
+            width: 90%;
+            max-width: 1200px;
+            background: rgba(30, 30, 30, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px red;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: black;
+            color: white;
+            border: 1px solid red;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid red;
+        }
+
+        th {
+            background-color: darkred;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(255, 0, 0, 0.2);
+        }
+
+        tr:hover {
+            background-color: rgba(255, 0, 0, 0.4);
+        }
+
+        button {
+            background-color: darkred;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+            box-shadow: 0px 0px 8px red;
+        }
+
+        button:hover {
+            background-color: red;
+            box-shadow: 0px 0px 15px red;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            padding: 12px 20px;
+            background-color: darkred;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+            box-shadow: 0px 0px 8px red;
+        }
+
+        .menu a:hover {
+            background-color: red;
+            box-shadow: 0px 0px 15px red;
+        }
+
+        /* Responsive table styles */
+        @media (max-width: 768px) {
+            .table-container {
+                padding: 15px;
+            }
+
+            table, th, td {
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            table, th, td {
+                display: block;
+                width: 100%;
+                font-size: 13px;
+            }
+
+            th {
+                display: none;
+            }
+
+            td {
+                display: flex;
+                justify-content: space-between;
+                padding: 10px;
+                border-top: 1px solid red;
+            }
+
+            td::before {
+                content: attr(data-label);
+                font-weight: bold;
+                color: red;
+                width: 50%;
+                display: inline-block;
+            }
+        }
+    </style>
+</head>
+<body>
+ 
+
+    <h1>Chargesheet</h1>
+         
+    <div class="table-container">
+        <form method="get">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <th>Victim ID</th>
+                    <th>Victim Name</th>
+                    <th>Date of Birth</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Phone No</th>
+                </tr>
+                {% for i in result %}
+                <tr>
+                    {% for j in i %}
+                    <td data-label="{{ j }}">{{ j }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+        </form>
+    </div>
+
+    <div class="button-container">
+        <a href="{% url 'download' %}" download><button>Download</button></a>
+    </div>
+</body>
+</html>

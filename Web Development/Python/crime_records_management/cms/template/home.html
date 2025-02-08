@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crime Records Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #1a1a2e;
+            color: #ffffff;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #16213e;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            color: #e94560;
+        }
+        .container {
+            padding: 50px 20px;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .features {
+            margin-top: 40px;
+            background: #0f3460;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .features h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        .features ul {
+            list-style: none;
+            padding: 0;
+        }
+        .features li {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .features li i {
+            margin-right: 10px;
+            color: #e94560;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <i class="fas fa-shield-alt"></i> Crime Records
+        </div>
+        <div class="nav-links">
+            <a href="#"><i class="fas fa-home"></i> HOME</a>
+            <a href="department_login.html"><i class="fas fa-building"></i> DEPARTMENT</a>
+            <a href="crime_login.html"><i class="fas fa-user-secret"></i> CRIME</a>
+            <a href="investigation_login.html"><i class="fas fa-search"></i> INVESTIGATION</a>
+            <a href="charge_login.html"><i class="fas fa-balance-scale"></i> CHARGE SHEET</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Crime Records Management System</h1>
+        <p>The Crime Records Management System is a secure digital platform designed to streamline law enforcement data, including crime reports, investigations, and charge sheets. It enhances efficiency, ensuring accurate and quick access to records while promoting transparency and security in the justice system.</p>
+        <div class="features">
+            <h2>Key Features</h2>
+            <ul>
+                <li><i class="fas fa-database"></i> Centralized database for crime records</li>
+                <li><i class="fas fa-user-shield"></i> Role-based access control</li>
+                <li><i class="fas fa-search-location"></i> Real-time tracking of investigations</li>
+                <li><i class="fas fa-lock"></i> Secure and encrypted data storage</li>
+                <li><i class="fas fa-file-alt"></i> Efficient case management & charge sheet generation</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

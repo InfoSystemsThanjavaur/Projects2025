@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evidence Witness</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: red;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px darkred;
+        }
+
+        .table-container {
+            width: 90%;
+            max-width: 1200px;
+            background: linear-gradient(180deg, #222, black);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px red;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #444;
+        }
+
+        th {
+            background-color: darkred;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #333;
+        }
+
+        tr:hover {
+            background-color: #444;
+        }
+
+        button {
+            background-color: darkred;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: red;
+        }
+
+        button a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .button-container {
+            text-align: center;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            table, th, td {
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            table, th, td {
+                display: block;
+                width: 100%;
+                font-size: 13px;
+            }
+
+            th {
+                display: none;
+            }
+
+            td {
+                display: flex;
+                justify-content: space-between;
+                padding: 10px;
+                border-top: 1px solid #555;
+            }
+
+            td::before {
+                content: attr(data-label);
+                font-weight: bold;
+                color: darkred;
+                width: 50%;
+                display: inline-block;
+            }
+
+            .table-container {
+                padding: 10px;
+            }
+
+            button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Evidence Witness</h1>
+
+    <div class="table-container">
+        <form method="get">
+            {% csrf_token %}
+            <table>
+                <tr>	
+                    <th>Victim ID</th>
+                    <th>Victim Name</th>
+                    <th>Date of Birth</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Phone No</th>
+                </tr>
+                {% for i in result %}
+                <tr>
+                    {% for j in i %}
+                    <td data-label="{{ j }}">{{ j }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+        </form>
+    </div>
+
+    <div class="button-container">
+        <button><a href="investigation_home.html">Back</a></button> 
+    </div>
+</body>
+</html>

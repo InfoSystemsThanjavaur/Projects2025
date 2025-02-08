@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crime Witness</title>
+    <style>
+        /* Body and header styling */
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: red;
+            text-shadow: 2px 2px 5px darkred;
+        }
+
+        /* Table container styling */
+        .table-container {
+            width: 90%;
+            max-width: 1200px;
+            background: linear-gradient(180deg, #222, black);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px red;
+            margin: 20px auto;
+        }
+
+        /* Table styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #444;
+            color: white;
+        }
+
+        th {
+            background-color: red;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #333;
+        }
+
+        tr:hover {
+            background-color: #444;
+        }
+
+        /* Button styling */
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: red;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        button a {
+            color: white;
+            text-decoration: none;
+        }
+
+        button:hover {
+            background-color: darkred;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .table-container {
+                padding: 15px;
+            }
+
+            table, th, td {
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            table, th, td {
+                display: block;
+                width: 100%;
+                font-size: 13px;
+            }
+
+            th {
+                display: none;
+            }
+
+            td {
+                display: flex;
+                justify-content: space-between;
+                padding: 10px;
+                border-top: 1px solid #444;
+            }
+
+            td::before {
+                content: attr(data-label);
+                font-weight: bold;
+                color: red;
+                width: 50%;
+                display: inline-block;
+            }
+
+            .table-container {
+                padding: 10px;
+            }
+
+            button {
+                font-size: 14px;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Crime Witness</h1>
+
+    <div class="table-container">
+        <form method="get">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <th>Crime Category ID</th>
+                    <th>Crime Category Name</th>
+                </tr>
+                {% for i in result %}
+                <tr>
+                    {% for j in i %}
+                    <td data-label="{{ j }}">{{ j }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+        </form>
+    </div>
+
+    <div class="button-container">
+        <button><a href="investigation_home.html">Back</a></button>
+    </div>
+</body>
+</html>
