@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Access Control System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f5f9; /* Soft light background */
+            color: #333; /* Dark text color for contrast */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: #3498db; /* Blue header */
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: #2980b9; /* Darker blue navigation bar */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .nav-logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            padding: 0;
+        }
+
+        .nav-links li {
+            display: inline;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+            transition: 0.3s ease-in-out;
+        }
+
+        .nav-links a:hover {
+            background: #f39c12; /* Orange on hover */
+            border-radius: 5px;
+        }
+
+        /* Mobile Menu */
+        .menu-icon {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: white;
+        }
+
+        /* Content Area */
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 900px;
+            padding: 20px;
+            background: #fff; /* White container */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        /* Role-Based Styling */
+        .owner { border-left: 5px solid #f39c12; }
+        .admin { border-left: 5px solid #2980b9; }
+        .viewer { border-left: 5px solid #2ecc71; }
+
+        /* Buttons */
+        .btn {
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 10px 5px;
+            border-radius: 5px;
+            transition: transform 0.2s ease-in-out, background 0.3s ease-in-out;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+            transform: scale(1.05);
+        }
+
+        .danger {
+            background: #e74c3c; /* Red danger button */
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #1f1f1f;
+            color: white;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* About Content */
+        .about-section {
+            background: #ecf0f1; /* Light gray background */
+            padding: 40px 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #2980b9; /* Blue color for title */
+        }
+
+        .about-section p {
+            font-size: 1.1rem;
+            color: #7f8c8d; /* Light gray text */
+            line-height: 1.6;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #333;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                text-align: center;
+                padding: 10px;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 15px;
+                width: 100%;
+                display: block;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>Cloud Access Control System</header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-logo">Cloud Access</div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="userlogin.html"><i class="fas fa-user"></i> User</a></li>
+    <li><a href="viewerlogin.html"><i class="fas fa-eye"></i> Viewer</a></li>
+    <li><a href="adminlogin.html"><i class="fas fa-user-shield"></i> Admin</a></li>
+    <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+        </ul>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- About Our Project Section -->
+        <div class="about-section">
+            <h2>Our Cloud Access Control System</h2>
+            <p>Our Cloud Access Control System is designed to provide seamless, secure, and efficient access management for users. Whether you're an admin, viewer, or owner, our platform allows for flexible roles and permissions, ensuring that only authorized individuals have access to sensitive data and files. With cloud-based technologies, the system is scalable, reliable, and accessible from anywhere, making it ideal for organizations and individuals seeking enhanced control over their cloud resources.</p>
+        </div>
+
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>Cloud Access Control &copy; 2025</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            var navLinks = document.getElementById('nav-links');
+            navLinks.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>

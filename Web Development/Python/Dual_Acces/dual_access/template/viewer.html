@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viewer Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: #343a40;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .logo {
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 10px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: #495057;
+            border-radius: 5px;
+        }
+
+        /* Viewer Dashboard Styles */
+        .viewer h2 {
+            color: #343a40;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .file-list {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .file-list h3 {
+            color: #007bff;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .file-item {
+            background: #f1f1f1;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .file-item:hover {
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .file-item h4 {
+            color: #007bff;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .no-files {
+            color: red;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .refresh-btn {
+            display: block;
+            margin: 20px auto;
+            background-color: #28a745;
+        }
+
+        .refresh-btn:hover {
+            background-color: #218838;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+                padding: 10px;
+            }
+
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar .logo {
+                font-size: 1.3rem;
+                margin-bottom: 10px;
+            }
+
+            .file-list {
+                padding: 15px;
+            }
+
+            .file-item {
+                padding: 12px;
+            }
+
+            .btn {
+                width: 100%;
+                font-size: 1.1rem;
+                padding: 15px;
+            }
+
+            .refresh-btn {
+                width: 100%;
+                font-size: 1.1rem;
+                padding: 15px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .container {
+            animation: fadeIn 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="logo">Viewer Dashboard</div>
+    <ul class="nav-links">
+        <li><a href="base.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+    </ul>
+</nav>
+
+<!-- Viewer Dashboard Content -->
+<div class="container viewer">
+    <h2>Welcome, Viewer</h2>
+    <p>You have read-only access to shared files.</p>
+
+    <!-- Display file details -->
+    <div class="file-list">
+        {% if files %}
+            <h3>Shared Files</h3>
+            <ul>
+                {% for file in files %}
+                    <li class="file-item">
+                        <h4>{{ file.0 }}</h4>  <!-- file_name -->
+                        <p><strong>Shared with:</strong> {{ file.2 }}</p>  <!-- shared_with -->
+                        <a href="{{ file.1 }}" class="btn" target="_blank">
+                            <i class="fas fa-eye"></i> View File
+                        </a> <!-- file_path -->
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="no-files">No files available to view.</p>
+        {% endif %}
+    </div>
+
+    <!-- Refresh Button -->
+    <button class="btn refresh-btn" onclick="window.location.href='{% url 'viewer_dashboard' %}'">
+        <i class="fas fa-sync-alt"></i> Refresh File List
+    </button>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff8c00, #ff5e62);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        /* Navigation Bar */
+        .nav {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            background: #007bff;
+            color: white;
+            padding: 12px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .nav a:hover {
+            background: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .danger {
+            background: #e74c3c !important;
+        }
+
+        .danger:hover {
+            background: #c0392b !important;
+        }
+
+        /* Admin Controls */
+        .controls {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .controls h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 12px;
+                font-size: 16px;
+            }
+        }
+
+        /* Fade In Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome, Admin</h2> 
+        <p>You can manage users and modify files but cannot delete them.</p>
+
+        <!-- Navigation Bar -->
+        <div class="nav">
+            <a href="view_users.html"><i class="fa fa-edit"></i>view Users</a>
+            <a href="delete_users.html"><i class="fa fa-users"></i> Delete Users</a>
+            <a href="view_viewers.html"><i class="fa fa-users"></i> view Viewers</a>
+            <a href="delete_viewers.html"><i class="fa fa-users"></i> Delete Viewers</a>
+            
+            
+            <a href="base.html"><i class="fa fa-sign-out-alt"></i> Logout</a>
+        </div>
+
+        <!-- Admin Controls Section -->
+        <div class="controls">
+            <h3>Your Actions</h3>
+            <p>Use the buttons above to manage the files and users in your system.</p>
+        </div>
+    </div>
+</body>
+</html>
